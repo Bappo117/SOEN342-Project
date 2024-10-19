@@ -36,5 +36,11 @@ public class RentedLocation {
         this.rooms = rooms;
     }
 
+
+    @Override
+    public String toString() {
+        return "RentedLocation [name=" + name + ", city=" + city + "]";
+    }
+
     
 }

@@ -1,3 +1,4 @@
+
 public class Administrator {
 
     String username;
@@ -26,5 +27,6 @@ public class Administrator {
         this.password = password;
     }
 
-    
+    //public void deleteAccount(){
+    //}
 }

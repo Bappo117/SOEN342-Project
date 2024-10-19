@@ -1,12 +1,10 @@
-import java.util.ArrayList;
-
 public class Room {
 
     String name;
-    ArrayList<Schedule> schedule;
+    Schedule schedule;
 
     
-    public Room(String name, ArrayList<Schedule> schedule) {
+    public Room(String name, Schedule schedule) {
         this.name = name;
         this.schedule = schedule;
     }
@@ -20,11 +18,17 @@ public class Room {
     }
 
 
-    public ArrayList<Schedule> getSchedule() {
+    public Schedule getSchedule() {
         return schedule;
     }
-    public void setSchedule(ArrayList<Schedule> schedule) {
+    public void setSchedule(Schedule schedule) {
         this.schedule = schedule;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Room [name=" + name + "]";
     }
 
 

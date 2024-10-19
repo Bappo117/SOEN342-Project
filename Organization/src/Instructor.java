@@ -1,18 +1,21 @@
 import java.util.ArrayList;
+import java.time.LocalDateTime;
 
 public class Instructor {
 
     String name;
     String phone;
-    String specialization;
+    ArrayList<String> specialization;
     ArrayList<String> cities;
+    ArrayList<LocalDateTime> availabilities;
 
 
-    public Instructor(String name, String phone, String specialization, ArrayList<String> cities){
+    public Instructor(String name, String phone, ArrayList<String> specialization, ArrayList<String> cities, ArrayList<LocalDateTime> availabilities){
         this.name = name;
         this.phone = phone;
         this.specialization = specialization;
         this.cities = cities;
+        this.availabilities = availabilities;
     }
 
 
@@ -33,10 +36,10 @@ public class Instructor {
     }
 
 
-    public String getSpecialization() {
+    public ArrayList<String> getSpecialization() {
         return specialization;
     }
-    public void setSpecialization(String specialization) {
+    public void setSpecialization(ArrayList<String> specialization) {
         this.specialization = specialization;
     }
 
@@ -46,6 +49,14 @@ public class Instructor {
     }
     public void setCities(ArrayList<String> cities) {
         this.cities = cities;
+    }
+
+
+    public ArrayList<LocalDateTime> getAvailabilities() {
+        return availabilities;
+    }
+    public void setAvailabilities(ArrayList<LocalDateTime> availabilities) {
+        this.availabilities = availabilities;
     }
 
 

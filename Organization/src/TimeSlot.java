@@ -37,5 +37,11 @@ public class TimeSlot {
         this.offering = offering;
     }
 
+
+    @Override
+    public String toString() {
+        return "TimeSlot [start=" + start + ", end=" + end + "]";
+    }
+
     
 }
