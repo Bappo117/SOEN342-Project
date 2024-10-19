@@ -21,4 +21,7 @@ https://docs.google.com/document/d/1OWAF0sDOd96vqqiJnNI67BC-cCVN1tMVoiXUD1EqRHw/
 UML class diagram:
 https://drive.google.com/file/d/1M6uSR0Rd3RtNEvnue3JPvWKBCm3Ml-BC/view?usp=sharing
 
+UML interactions diagram:
+https://drive.google.com/file/d/1gcRocj4sC_zHhB5rBKI-2BMWDrdPni7S/view?usp=sharing
+
 
