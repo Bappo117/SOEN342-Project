@@ -225,6 +225,28 @@ public class Organization {
         //this function allows the administrator to make an offering with no instructor.
         public void makeOffering(){
             Scanner scan = new Scanner(System.in);
+            int i = 0;
+            System.out.println("Select Location to make offering.");
+            for(RentedLocation L: Locations){
+                System.out.print("["+i+"]");
+                L.toString();
+                i++;
+            }
+            i=0;
+            int locationChoice = Integer.parseInt(scan.nextLine());
+            RentedLocation RL = Locations.get(locationChoice);
+
+            System.out.println("Select room where offering will take place.");
+            for(Room r: RL.rooms){
+               System.out.print("["+i+"]");
+               r.toString();
+               i++;
+            }
+            i=0;
+            int roomChoice = Integer.parseInt(scan.nextLine());
+            Room room1 = RL.rooms.get(roomChoice);
+            
+
             System.out.println("time to make an offering. please enter the following information:");
             
             System.out.println("Type of lesson: ");
@@ -259,7 +281,7 @@ public class Organization {
             Offering offering = new Offering(type, Private);
             offerings.add(offering);
             TimeSlot timeSlot = new TimeSlot(startTime, endTime, offering);
-            
+            room1.schedule.timeSlots.add(timeSlot);
 
             scan.close();
         }
@@ -323,7 +345,6 @@ public class Organization {
                 else{
                     break;
                 }
-
             }
             while(true){
                 if(this.UserType == "Administrator"){
@@ -350,10 +371,7 @@ public class Organization {
                 else{
                     break;
                 }
-
             }
-
-
             scan.close();
         }
 
