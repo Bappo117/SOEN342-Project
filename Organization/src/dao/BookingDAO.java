@@ -8,13 +8,7 @@ import dao.OfferingDAO;
 
 public class BookingDAO {
 
-    /**
-     * Makes a booking for a client.
-     *
-     * @param offeringId the ID of the offering to book
-     * @param clientId   the ID of the client making the booking
-     * @return true if the booking is successful, false otherwise
-     */
+    
     public boolean makeBooking(int offeringId, int clientId) {
         if (!isOfferingAvailable(offeringId)) {
             System.out.println("Error: Offering is not available or does not exist.");
@@ -45,12 +39,7 @@ public class BookingDAO {
             return false;
         }
     }
-    /**
-     * Cancels a booking for a client.
-     *
-     * @param bookingId the ID of the booking to cancel
-     * @return true if the cancellation is successful, false otherwise
-     */
+  
     public boolean cancelBooking(int bookingId) {
         String sql = "DELETE FROM Booking WHERE booking_id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -63,11 +52,7 @@ public class BookingDAO {
         }
     }
 
-    /**
-     * Retrieves all available offerings for clients to view.
-     *
-     * @return a formatted string of available offerings
-     */
+    
     public String viewAvailableOfferingsForClients() {
         StringBuilder offerings = new StringBuilder();
         String sql = "SELECT o.offering_id, l.lesson_name, loc.location_name, o.time_slot, o.date_range " +
@@ -92,13 +77,7 @@ public class BookingDAO {
         return offerings.toString();
     }
 
-    /**
-     * Checks if an offering is already booked by the client.
-     *
-     * @param offeringId the ID of the offering
-     * @param clientId   the ID of the client
-     * @return true if the client has already booked the offering, false otherwise
-     */
+   
     public boolean isAlreadyBooked(int offeringId, int clientId) {
         String sql = "SELECT * FROM Booking WHERE offering_id = ? AND client_id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
