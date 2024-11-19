@@ -23,7 +23,7 @@ public class InstructorPanel {
     private void placeComponents(JPanel panel) {
         panel.setLayout(null);
 
-        // Buttons
+      
         JButton registerButton = new JButton("Register as Instructor");
         registerButton.setBounds(150, 20, 200, 25);
         panel.add(registerButton);
@@ -44,11 +44,11 @@ public class InstructorPanel {
         logOutButton.setBounds(150, 180, 200, 25);
         panel.add(logOutButton);
 
-        // DAO Instances
+        
         InstructorDAO instructorDAO = new InstructorDAO();
         OfferingDAO offeringDAO = new OfferingDAO();
 
-        // Action for Registering a New Instructor
+        
         registerButton.addActionListener(e -> {
             String name = JOptionPane.showInputDialog("Enter your Name:");
             String phone = JOptionPane.showInputDialog("Enter your Phone Number:");
@@ -67,13 +67,13 @@ public class InstructorPanel {
             }
         });
 
-        // Action for Listing All Instructors
+        
         listInstructorsButton.addActionListener(e -> {
             String instructors = instructorDAO.listInstructors();
             JOptionPane.showMessageDialog(null, "List of Instructors:\n" + instructors);
         });
 
-        // Action for Viewing All Offerings
+       
         viewOfferingsButton.addActionListener(e -> {
             String offerings = offeringDAO.viewOfferings();
             if (offerings.isEmpty()) {
@@ -84,7 +84,7 @@ public class InstructorPanel {
         });
 
 
-        // Action for Taking an Offering
+       
         takeOfferingButton.addActionListener(e -> {
             String offeringIdInput = JOptionPane.showInputDialog("Enter Offering ID:");
             String instructorIdInput = JOptionPane.showInputDialog("Enter Your Instructor ID:");
@@ -114,7 +114,7 @@ public class InstructorPanel {
             }
         });
 
-        // Action for Logging Out
+      
         logOutButton.addActionListener(e -> {
             frame.dispose();
             SwingUtilities.invokeLater(() -> new LoginSignupUI().display());
