@@ -15,7 +15,7 @@ public class OfferingDAO {
             stmt.setString(2, timeSlot);
             stmt.setString(3, dateRange);
             try (ResultSet rs = stmt.executeQuery()) {
-                return rs.next(); // Returns true if a matching offering is found
+                return rs.next(); 
             }
         } catch (SQLException e) {
             e.printStackTrace();
