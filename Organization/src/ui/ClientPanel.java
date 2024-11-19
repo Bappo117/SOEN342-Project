@@ -25,13 +25,13 @@ public class ClientPanel {
     private void placeComponents(JPanel panel) {
         panel.setLayout(null);
 
-        // DAO instances
+       
         AuthenticationDAO authDAO = new AuthenticationDAO();
         BookingDAO bookingDAO = new BookingDAO();
         OfferingDAO offeringDAO = new OfferingDAO();
         GuardianDAO guardianDAO = new GuardianDAO();
 
-        // Buttons
+      
         JButton viewBookingsButton = new JButton("View Bookings");
         viewBookingsButton.setBounds(100, 50, 200, 25);
         panel.add(viewBookingsButton);
@@ -52,7 +52,7 @@ public class ClientPanel {
         logOutButton.setBounds(100, 250, 200, 25);
         panel.add(logOutButton);
 
-        // View Bookings Functionality
+    
         viewBookingsButton.addActionListener(e -> {
             String username = JOptionPane.showInputDialog("Enter your Username:");
 
@@ -77,7 +77,7 @@ public class ClientPanel {
             }
         });
 
-        // Make Booking Functionality
+       
         makeBookingButton.addActionListener(e -> {
             String offeringIdInput = JOptionPane.showInputDialog("Enter Offering ID:");
             String username = JOptionPane.showInputDialog("Enter your Username:");
@@ -106,7 +106,6 @@ public class ClientPanel {
             }
         });
 
-        // View Offerings Functionality
         viewOfferingsButton.addActionListener(e -> {
             String offerings = offeringDAO.viewOfferings();
             if (offerings.isEmpty()) {
@@ -116,7 +115,6 @@ public class ClientPanel {
             }
         });
 
-        // Register Guardian for Underage Clients
         registerGuardianButton.addActionListener(e -> {
             String username = JOptionPane.showInputDialog("Enter your Username:");
             String ageInput = JOptionPane.showInputDialog("Enter your Age:");
@@ -159,7 +157,6 @@ public class ClientPanel {
             }
         });
 
-        // Log Out Functionality
         logOutButton.addActionListener(e -> {
             frame.dispose();
             SwingUtilities.invokeLater(() -> new LoginSignupUI().display());
