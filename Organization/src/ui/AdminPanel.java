@@ -44,13 +44,12 @@ public class AdminPanel {
         logOutButton.setBounds(150, 210, 200, 25);
         panel.add(logOutButton);
 
-        // DAO instances
+       
         LessonDAO lessonDAO = new LessonDAO();
         LocationDAO locationDAO = new LocationDAO();
         OfferingDAO offeringDAO = new OfferingDAO();
 
-        // Action Listeners
-        // Create Lesson
+       
         createLessonButton.addActionListener(e -> {
             String lessonName = JOptionPane.showInputDialog("Enter Lesson Name:");
             String duration = JOptionPane.showInputDialog("Enter Duration (e.g., 1 hour):");
@@ -67,7 +66,7 @@ public class AdminPanel {
             }
         });
 
-        // Create Location
+        
         createLocationButton.addActionListener(e -> {
             String locationName = JOptionPane.showInputDialog("Enter Location Name:");
             String address = JOptionPane.showInputDialog("Enter Address:");
@@ -84,7 +83,7 @@ public class AdminPanel {
             }
         });
 
-        // Create Offering
+       
         createOfferingButton.addActionListener(e -> {
             String lessonIdInput = JOptionPane.showInputDialog("Enter Lesson ID:");
             String locationIdInput = JOptionPane.showInputDialog("Enter Location ID:");
@@ -111,7 +110,7 @@ public class AdminPanel {
             }
         });
 
-        // View Offerings
+       
         viewOfferingsButton.addActionListener(e -> {
             String offerings = offeringDAO.viewOfferings();
             if (offerings.isEmpty()) {
@@ -122,7 +121,7 @@ public class AdminPanel {
         });
 
 
-        // Log Out
+       
         logOutButton.addActionListener(e -> {
             frame.dispose();
             SwingUtilities.invokeLater(() -> new LoginSignupUI().display());
