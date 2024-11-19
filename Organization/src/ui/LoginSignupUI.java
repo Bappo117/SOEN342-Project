@@ -23,7 +23,7 @@ public class LoginSignupUI {
     private void placeComponents(JPanel panel) {
         panel.setLayout(null);
 
-        // Initialize DAO instances
+        
         AuthenticationDAO authDAO = new AuthenticationDAO();
         GuardianDAO guardianDAO = new GuardianDAO();
 
@@ -51,7 +51,7 @@ public class LoginSignupUI {
         signupButton.setBounds(180, 140, 120, 25);
         panel.add(signupButton);
 
-        // Login Functionality
+      
         loginButton.addActionListener(e -> {
             String username = userText.getText();
             String password = new String(passwordText.getPassword());
@@ -70,7 +70,7 @@ public class LoginSignupUI {
             }
         });
 
-        // Signup Functionality
+       
         signupButton.addActionListener(e -> {
             String username = JOptionPane.showInputDialog("Enter your Username:");
             String password = JOptionPane.showInputDialog("Enter your Password:");
@@ -86,7 +86,7 @@ public class LoginSignupUI {
                     if (age < 18) {
                         JOptionPane.showMessageDialog(null, "You are underage. A guardian must be registered.");
 
-                        // Collect guardian details
+                      
                         String guardianName = JOptionPane.showInputDialog("Enter Guardian's Name:");
                         String guardianContact = JOptionPane.showInputDialog("Enter Guardian's Contact Information:");
                         String relationship = JOptionPane.showInputDialog("Enter Relationship to Guardian:");
@@ -97,7 +97,7 @@ public class LoginSignupUI {
                             return;
                         }
 
-                        // Register client and guardian
+                        
                         if (authDAO.signup(username, password, role)) {
                             int clientId = authDAO.getClientIdByUsername(username);
                             if (clientId != -1 && guardianDAO.registerGuardian(clientId, guardianName, guardianContact, relationship)) {
@@ -116,7 +116,7 @@ public class LoginSignupUI {
                 }
             }
 
-            // Signup for non-underage clients
+      
             if (authDAO.signup(username, password, role)) {
                 JOptionPane.showMessageDialog(null, "Signup successful! Please login.");
             } else {
