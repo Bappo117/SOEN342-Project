@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 public class AuthenticationDAO {
     public boolean login(String username, String password) {
         if (username == null || password == null || username.isEmpty() || password.isEmpty()) {
-            return false; // Prevent empty input
+            return false;
         }
         String query = "SELECT * FROM User WHERE username = ? AND password = ?";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -31,24 +31,24 @@ public class AuthenticationDAO {
              PreparedStatement userStmt = conn.prepareStatement(userInsertQuery, PreparedStatement.RETURN_GENERATED_KEYS);
              PreparedStatement clientStmt = conn.prepareStatement(clientInsertQuery)) {
 
-            // Insert into User table
+            
             userStmt.setString(1, username);
             userStmt.setString(2, password);
             userStmt.setString(3, role);
             userStmt.executeUpdate();
 
-            // Get the generated user_id
+           
             ResultSet rs = userStmt.getGeneratedKeys();
             if (rs.next()) {
                 int userId = rs.getInt(1);
 
-                // If the role is 'Client', also insert into the Client table
+                
                 if ("Client".equalsIgnoreCase(role)) {
                     String clientName = JOptionPane.showInputDialog("Enter Client Name:");
                     String ageInput = JOptionPane.showInputDialog("Enter Client Age:");
                     int age = Integer.parseInt(ageInput);
 
-                    // Optional: Ask for guardian if underage
+                  
                     Integer guardianId = null;
                     if (age < 18) {
                         String guardianInput = JOptionPane.showInputDialog("Enter Guardian ID (if any):");
@@ -57,7 +57,7 @@ public class AuthenticationDAO {
                         }
                     }
 
-                    // Insert into Client table
+                    
                     clientStmt.setString(1, clientName);
                     clientStmt.setInt(2, age);
                     if (guardianId != null) {
@@ -108,7 +108,7 @@ public class AuthenticationDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return -1; // Return -1 if client_id not found
+        return -1; 
     }
 
 }
